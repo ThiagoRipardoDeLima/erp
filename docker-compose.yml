@@ -1,0 +1,48 @@
+version: '3.7'
+networks:
+  ntw_dberp:
+    driver: bridge
+  ntw_front:
+    driver: bridge
+volumes:
+  dberp_data:
+services:
+  dberp:
+    image: mariadb:10.4.17
+    container_name: dberp
+    ports:
+      - 3306:3306
+    volumes:
+      - dberp_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: aK_z65YA
+      MYSQL_DATABASE: erp
+      MYSQL_USER: fernando
+      MYSQL_PASSWORD: 290354Fgj
+    networks:
+      - ntw_dberp
+  php7:
+    image: akeneo/fpm:php-7.3
+    container_name: php7
+    volumes:
+      - ./:/erp
+    ports:
+      - "9001:9001"
+    networks:
+      - ntw_front
+  nginx:
+    image: nginx:1.19.6
+    container_name: nginx
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./:/erp
+    ports:
+      - "80:80"
+    networks:
+      - ntw_dberp
+      - ntw_front
+    depends_on:
+      - dberp
+      - php7
+  

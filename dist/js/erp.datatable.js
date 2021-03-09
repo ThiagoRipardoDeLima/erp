@@ -1,4 +1,4 @@
-class SescTables {
+class ErpTables {
 
 	constructor() {
 		this.configExtensions();
@@ -13,7 +13,7 @@ class SescTables {
 			configDatatable: function ($custom = {}) {
 				$(this).DataTable($me.getConfig($custom));
 			},
-			getSescTablesApi: function () {
+			getErpTablesApi: function () {
 				return $me;
 			},
 			getColumns: function () {
@@ -105,8 +105,8 @@ class SescTables {
 			}
 		});
 
-		$(this).getSescTablesApi().fixHeaderExcel($xlsx);
-		$(this).getSescTablesApi().fixFooterExcelNumberFormat($xlsx);
+		$(this).getErpTablesApi().fixHeaderExcel($xlsx);
+		$(this).getErpTablesApi().fixFooterExcelNumberFormat($xlsx);
 	}
 
 	customizePdf($doc) {
@@ -132,11 +132,11 @@ class SescTables {
 	}
 
 	renderDate($data, $type, $row, $meta) {
-		return $(this).getSescTablesApi().getDate($data);
+		return $(this).getErpTablesApi().getDate($data);
 	}
 
 	renderDateTime($data, $type, $row, $meta) {
-		return $(this).getSescTablesApi().getDate($data, { hour: true, minute: true });
+		return $(this).getErpTablesApi().getDate($data, { hour: true, minute: true });
 	}
 
 	renderDecimal($data, $type, $row, $meta) {
@@ -150,14 +150,14 @@ class SescTables {
 
 		$.each($columns, function ($index, $column) {
 			var $total = 0.0;
-			if ($column['className'] && ~$column['className'].indexOf('sesc-footer')) {
+			if ($column['className'] && ~$column['className'].indexOf('erp-footer')) {
 				var $total = $api.column($index)
 					.data()
 					.reduce(function ($total, $val) {
 						if ($($val).is('input')) {
 							$val = $($val).val();
 						} else if ($($val).is('div')) {
-							$val = $($val).find('.sesc-footer').val();
+							$val = $($val).find('.erp-footer').val();
 						}
 
 						return $total + parseFloat(($val ? $val.replace(",", ".") : '0'));
@@ -403,4 +403,4 @@ class SescTables {
 }
 
 var $ = jQuery;
-var $tables = new SescTables();
+var $tables = new ErpTables();

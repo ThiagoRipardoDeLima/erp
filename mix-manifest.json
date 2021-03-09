@@ -1,5 +1,6 @@
 {
     "/dist/js/erp.datatable.min.js": "/dist/js/erp.datatable.min.js",
+    "/dist/js/login.min.js": "/dist/js/login.min.js",
     "/plugins/jqdoublescroll/jquery.doubleScroll.min.js": "/plugins/jqdoublescroll/jquery.doubleScroll.min.js",
     "/plugins/jquery-mousewheel/jquery.mousewheel.min.js": "/plugins/jquery-mousewheel/jquery.mousewheel.min.js",
     "/plugins/smartwizard/smart_wizard_all.min.css": "/plugins/smartwizard/smart_wizard_all.min.css",
@@ -31,5 +32,6 @@
     "/plugins/toastr/toastr.js.map": "/plugins/toastr/toastr.js.map",
     "/plugins/toastr/toastr.min.css": "/plugins/toastr/toastr.min.css",
     "/plugins/toastr/toastr.min.js": "/plugins/toastr/toastr.min.js",
-    "/dist/css/erp.min.css": "/dist/css/erp.min.css"
+    "/dist/css/erp.min.css": "/dist/css/erp.min.css",
+    "/dist/css/login.min.css": "/dist/css/login.min.css"
 }

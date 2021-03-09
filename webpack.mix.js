@@ -31,4 +31,6 @@ mix.copy(['node_modules/smartwizard/dist/css/smart_wizard_all.min.css', 'node_mo
    .js('dist/js/erp.datatable.js', 'dist/js/erp.datatable.min.js')
    .js('node_modules/jqdoublescroll/jquery.doubleScroll.js', 'plugins/jqdoublescroll/jquery.doubleScroll.min.js')
    .js('node_modules/jquery-mousewheel/jquery.mousewheel.js', 'plugins/jquery-mousewheel/jquery.mousewheel.min.js')
-   .minify('dist/css/erp.css', 'dist/css/erp.min.css');
+   .js('dist/js/login.js', 'dist/js/login.min.js')
+   .minify('dist/css/erp.css', 'dist/css/erp.min.css')
+   .minify('dist/css/login.css', 'dist/css/login.min.css');
